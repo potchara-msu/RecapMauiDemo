@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiDemo.Pages.LoginPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:viewmodel="clr-namespace:MauiDemo.ViewModel"
+             x:DataType="viewmodel:LoginViewModel"
+             Title="LoginPage">
+    <Grid>
+        <Image Source="bg.jpg"
+               Aspect="AspectFill"></Image>
+
+        <VerticalStackLayout VerticalOptions="Center">
+            <Border WidthRequest="300"
+                    BackgroundColor="WhiteSmoke"
+                    StrokeShape="RoundRectangle 20,20,20,20">
+                <VerticalStackLayout>
+                    <Image Source="icons8_event_64.png"
+                           WidthRequest="64"
+                           Margin="0,20"></Image>
+                    <VerticalStackLayout WidthRequest="250">
+                        <Label
+                            Text="Login"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Margin="0,5"/>
+                        <Entry HorizontalTextAlignment="Center"
+                               FontSize="24"
+                               WidthRequest="250"
+                               Text="{Binding Username}"
+                               ></Entry>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout WidthRequest="250"
+                                         Margin="0,5">
+                        <Label
+                            Text="Password"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Margin="0,5"/>
+                        <Entry IsPassword="True"
+                               HorizontalTextAlignment="Center"
+                               FontSize="24"
+                               WidthRequest="250"
+                               Text="{Binding Password}">
+                        </Entry>
+                    </VerticalStackLayout>
+                    <Button WidthRequest="250"
+                            Margin="0,20"
+                            Text="Login"
+                            Command="{Binding LoginCommand}">
+                    </Button>
+                    <FlexLayout JustifyContent="SpaceAround"
+                                Margin="0,0,0,20">
+                        <Label Text="Register">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GotoPageCommand}"
+                                                      CommandParameter="register"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Text="Forget Password?">
+                          
+                        </Label>
+                    </FlexLayout>
+
+
+                </VerticalStackLayout>
+
+            </Border>
+            <Label Text="Copyright © 2024. Cross Platform App. CSMSU."
+                   HorizontalTextAlignment="Center"
+                   TextColor="WhiteSmoke"
+                   Margin="0,20"></Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
